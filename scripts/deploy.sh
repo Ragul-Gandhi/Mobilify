@@ -1,22 +1,23 @@
 #!/bin/bash
-# deploy.sh - runs the application from the Docker image
 
-REPO=ragulgandhi/prod
-TAG=1
-NAME=mob-con         # name for the running container
-HOST_PORT=8081    # port on the server you will open in the browser
-APP_PORT=80   # port the app uses inside the container
+set -e
 
-echo "Deploying $REPO:$TAG ..."
+REPO=$1
+TAG=$2
+NAME=$3
+HOST_PORT=$4
+APP_PORT=$5
 
-# 1. Download the image from Docker Hub
-docker pull $REPO:$TAG
+echo "Deploying ${REPO}:${TAG} ..."
 
-# 2. Stop and remove the old container (ignore errors if it doesn't exist)
-docker stop $NAME || true
-docker rm $NAME || true
+docker pull ${REPO}:${TAG}
 
-# 3. Start the new container in the background
-docker run -d --name $NAME -p $HOST_PORT:$APP_PORT $REPO:$TAG
+docker stop ${NAME} || true
+docker rm ${NAME} || true
 
-echo "Done! App is running on port $HOST_PORT"
+docker run -d \
+  --name ${NAME} \
+  -p ${HOST_PORT}:${APP_PORT} \
+  ${REPO}:${TAG}
+
+echo "Done! App is running on port ${HOST_PORT}"

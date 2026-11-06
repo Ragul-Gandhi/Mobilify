@@ -1,11 +1,15 @@
 #!/bin/bash
-# build.sh - builds the Docker image
 
-REPO=ragulgandhi/prod  
-TAG=1
-echo "Building image $REPO:$TAG ..."
+set -e
 
-# Build the image from the Dockerfile in this folder
-docker build -t $REPO:$TAG -t $REPO:latest .
+REPO=$1
+TAG=$2
+
+echo "Building image ${REPO}:${TAG} ..."
+
+docker build \
+  -t ${REPO}:${TAG} \
+  -t ${REPO}:latest \
+  .
 
 echo "Build finished!"
