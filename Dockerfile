@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx
 <<<<<<< HEAD
 COPY ./build/ /usr/share/nginx/html
 EXPOSE 80
