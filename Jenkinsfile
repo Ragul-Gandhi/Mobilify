@@ -33,7 +33,7 @@ pipeline {
 
         // ---------- master branch (dev merged): NO build, push to PROD repo and deploy ----------
         stage('Prod Pipeline') {
-            when { branch 'master' }
+            when { branch 'main' }
             environment {
                 DEV_REPO  = 'ragulgandhi/dev'
                 PROD_REPO = 'ragulgandhi/prod'
