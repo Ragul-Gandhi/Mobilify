@@ -1,9 +1,0 @@
-services:
-
-  web:
-    build: ./
-    image: ragulgandhi/react:latest
-    container_name: react-con
-    ports:
-      - "8081:80"
-
