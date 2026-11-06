@@ -2,10 +2,17 @@
 # deploy.sh - runs the application from the Docker image
 
 REPO=ragulgandhi/prod
+<<<<<<< HEAD
 TAG=1
 NAME=mob-con         # name for the running container
 HOST_PORT=8081    # port on the server you will open in the browser
 APP_PORT=80   # port the app uses inside the container
+=======
+TAG=$2
+NAME=mob-con         # name for the running container
+HOST_PORT=8081    # port on the server you will open in the browser
+APP_PORT=80  # port the app uses inside the container
+>>>>>>> origin/main
 
 echo "Deploying $REPO:$TAG ..."
 

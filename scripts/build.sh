@@ -2,7 +2,11 @@
 # build.sh - builds the Docker image
 
 REPO=ragulgandhi/prod  
+<<<<<<< HEAD
 TAG=1
+=======
+TAG=$2      
+>>>>>>> origin/main
 
 echo "Building image $REPO:$TAG ..."
 
