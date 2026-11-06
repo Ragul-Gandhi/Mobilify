@@ -57,7 +57,7 @@ pipeline {
                 }
                 stage('Deploy Prod') {
                     steps {
-                        sh './scripts/deploy.sh $PROD_REPO $TAG mob-prod 80 80'
+                        sh './scripts/deploy.sh $PROD_REPO $TAG mob-prod 8081 80'
                     }
                 }
             }
