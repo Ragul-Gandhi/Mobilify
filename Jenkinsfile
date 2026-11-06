@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    // Auto-build when code is pushed to GitHub (needs the GitHub webhook)
-    triggers {
-        githubPush()
-    }
 
     stages {
 
@@ -61,7 +57,7 @@ pipeline {
                 }
                 stage('Deploy Prod') {
                     steps {
-                        sh './scripts/deploy.sh $PROD_REPO $TAG mob-con 8081 80'
+                        sh './scripts/deploy.sh $PROD_REPO $TAG mob-prod 80 80'
                     }
                 }
             }
